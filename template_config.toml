@@ -1,0 +1,6 @@
+# Chat-LLM提供商
+# 可选：ollama、openai（及其兼容）
+chat_model_provider="ollama"
+chat_model_url="127.0.0.1:11434"
+chat_model_key = ""
+chat_model_name="deepseek-r1:8b"
