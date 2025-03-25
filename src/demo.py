@@ -7,17 +7,13 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 
 
-def format_docs(docs):
-    return "\n\n".join(doc.page_content for doc in docs)
-
-
 def main():
     output_parser = StrOutputParser()
     use_rag = config["use_rag"]
 
 
     if use_rag:
-        from k_llm.rag import retriever
+        from k_llm.rag import retriever, format_docs
 
         # retrieved_docs = retriever.invoke("你好")
         # print(len(retrieved_docs))
@@ -46,8 +42,8 @@ def main():
         # 调用 invoke 方法生成响应
         try:
             invoke_response = chain.invoke(user_input)
-            message = invoke_response.split("</think>")[-1]
-            print("模型: ", message)
+            message = invoke_response.split("</think>")[-1].split('\n')[-1]
+            print("模型:", message)
         except Exception as e:
             print("发生错误:", e)
 

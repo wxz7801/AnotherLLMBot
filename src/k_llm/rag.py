@@ -5,6 +5,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from k_llm.models import embedding_model
 
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
 # 获取检索器
 def get_retriever():
     chroma_db_path="./chroma_db"
