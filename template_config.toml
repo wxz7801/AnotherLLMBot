@@ -4,3 +4,10 @@ chat_model_provider="ollama"
 chat_model_url="127.0.0.1:11434"
 chat_model_key = ""
 chat_model_name="deepseek-r1:8b"
+
+emb_model_provider="openai"
+emb_model_url="https://api.siliconflow.cn/v1"
+emb_model_key=""
+emb_model_name="BAAI/bge-m3"
+
+use_rag = false
