@@ -1,7 +1,7 @@
 import os
-from config_loader import config  # 导入 config对象
-from k_llm.models import chat_model
-from k_llm.prompt_templates import rag_cat_girl, cat_girl
+from src.config_loader import config  # 导入 config对象
+from src.k_llm.models import chat_model
+from src.k_llm.prompt_templates import rag_cat_girl, cat_girl
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -13,7 +13,7 @@ def main():
 
 
     if use_rag:
-        from k_llm.rag import retriever, format_docs
+        from src.k_llm.rag import retriever, format_docs
 
         # retrieved_docs = retriever.invoke("你好")
         # print(len(retrieved_docs))

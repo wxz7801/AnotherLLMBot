@@ -5,6 +5,9 @@ chat_model_url="127.0.0.1:11434"
 chat_model_key = ""
 chat_model_name="deepseek-r1:8b"
 
+# embeddings模型配置，默认url是硅基流动api
+# 请自行替换自己的key
+# openai即为各类兼容openai-api的类型
 emb_model_provider="openai"
 emb_model_url="https://api.siliconflow.cn/v1"
 emb_model_key=""

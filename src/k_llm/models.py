@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from config_loader import config
+from src.config_loader import config
 
 def get_chat_model():
     # 从config.toml中读取配置

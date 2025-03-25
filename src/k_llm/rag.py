@@ -3,7 +3,7 @@ from langchain_chroma import Chroma
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from k_llm.models import embedding_model
+from src.k_llm.models import embedding_model
 
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)

@@ -10,5 +10,23 @@ dependencies = [
     "langchain-community>=0.3.20",
     "langchain-ollama>=0.3.0",
     "langchain-openai>=0.3.9",
+    "nb-cli>=1.4.2",
+    "nonebot-adapter-onebot>=2.4.6",
+    "nonebot2[fastapi,websockets]>=2.4.2",
     "unstructured[md,pdf]>=0.17.2",
 ]
+
+[dependency-groups]
+dev = [
+    "nonebot-adapter-console>=0.6.0",
+]
+
+
+[tool.nonebot]
+adapters = [
+    { name = "OneBot V12", module_name = "nonebot.adapters.onebot.v12" },
+    { name = "Console", module_name = "nonebot.adapters.console" }
+]
+plugins = []
+plugin_dirs = ["nonebot_src/plugins/"]
+builtin_plugins = []
