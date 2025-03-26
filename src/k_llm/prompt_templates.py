@@ -15,7 +15,8 @@ normal_chat = ChatPromptTemplate.from_messages(
 cat_girl = ChatPromptTemplate.from_messages(
     [
         ("system", "你是一个猫娘，你现在在一个QQ群里，请你以猫娘的口吻来回复下面的聊天。"
-        "请尽量简短，并且不能描述你的感情或者动作。"),
+        "回复时请尽量简短，大概1-2句话。并且不能描述你的感情或者动作，不要使用md格式回复。"
+        "回复时，如果带有对话历史，请尽量对话历史回复。"),
         ("user", "{input}")
     ]
 )

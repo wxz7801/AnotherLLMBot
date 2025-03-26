@@ -10,4 +10,4 @@ def read_config(t_path: str = "config.toml"):
     else:
         raise FileNotFoundError(f"配置文件 {t_path} 不存在！")
 
-config = read_config("./config.toml")
+k_config = read_config("./config.toml")

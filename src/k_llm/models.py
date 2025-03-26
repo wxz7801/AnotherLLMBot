@@ -1,13 +1,13 @@
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from src.config_loader import config
+from src.config_loader import k_config
 
 def get_chat_model():
     # 从config.toml中读取配置
-    chat_model_provider = config["chat_model_provider"]
-    chat_model_url = config["chat_model_url"]
-    chat_model_name = config["chat_model_name"]
-    chat_model_key = config["chat_model_key"]
+    chat_model_provider = k_config["chat_model_provider"]
+    chat_model_url = k_config["chat_model_url"]
+    chat_model_name = k_config["chat_model_name"]
+    chat_model_key = k_config["chat_model_key"]
 
     if chat_model_provider == "ollama":
         llm = ChatOllama(base_url=chat_model_url, model=chat_model_name)
@@ -21,10 +21,10 @@ def get_chat_model():
     return llm
 
 def get_embedding_model():
-    emb_model_provider = config["emb_model_provider"]
-    emb_model_url = config["emb_model_url"]
-    emb_model_name = config["emb_model_name"]
-    emb_model_key = config["emb_model_key"]
+    emb_model_provider = k_config["emb_model_provider"]
+    emb_model_url = k_config["emb_model_url"]
+    emb_model_name = k_config["emb_model_name"]
+    emb_model_key = k_config["emb_model_key"]
     
     if emb_model_provider == "ollama":
         embeddings = OllamaEmbeddings(base_url=emb_model_url, model=emb_model_name)
