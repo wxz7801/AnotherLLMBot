@@ -1,4 +1,5 @@
 from src.chat_bot import chat_bot
+from src.topic_identifier import topic_identifier
 
 
 def main():

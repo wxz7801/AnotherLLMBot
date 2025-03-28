@@ -1,4 +1,5 @@
 from src.config_loader import k_config  # 导入 config对象
+from src.k_llm.tools import extract_reasoning
 from src.k_llm.models import chat_model
 from src.k_llm.prompt_templates import rag_cat_girl, cat_girl
 
@@ -54,16 +55,18 @@ class ChatBot():
         self.app_config = {"configurable": {"thread_id": "1"}}
         
     
+    def set_name(self, name):
+        self.name = name
+    
     def reply(self, user_input):
         # 调用 invoke 方法生成响应
         try:
             output = self.app.invoke({"messages": user_input}, self.app_config)
-            print("output:", output)
-            print("==============================\n")
             invoke_response = output["messages"][-1].content
-            print("invoke_response:", invoke_response)
-            message = invoke_response.split("</think>")[-1].split('\n')[-1]
-            return message
+
+            content, _ = extract_reasoning(invoke_response)
+            
+            return content
         except Exception as e:
             return "发生错误:", e
 
